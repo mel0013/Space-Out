@@ -1,0 +1,36 @@
+<div class="container banner-list py-5 ">
+    <h1 class="pb-2 border-bottom text-center"><%= @room.title %></h1>
+
+  <%# Room details %>
+  <div class="text-center">
+    <div class="container py-3">
+      <img src="<%= @room.image_url %>" style="width: 20rem;" alt="Meeting Space Picture">
+    </div>
+
+    <div class="container">
+      <h4>Capacity</h4>
+      <p class="text-muted"><%= @room.capacity %></p>
+      <h4>Description</h4>
+      <p class="text-muted"><%= @room.description %></p>
+      <p class="text-muted">This meeting room is owned by <%= @room.user.name %></p>
+      <h4>Address</h4>
+      <p class="text-muted"><%= @room.address %></p>
+
+      <h4>Availability</h4>
+      <p class="text-muted">Booking status:
+      <% if @room.booked? %>
+      <%= "Currently unavailable for bookings" %>
+      <% else %>
+      <%= "Available for booking" %>
+      <% end %>
+      </p>
+      <p class="text-muted">From: <%= @room.availability_start.strftime("%m/%d/%Y at %I:%M%p") %></p>
+      <p class="text-muted">To: <%= @room.availability_end.strftime("%m/%d/%Y at %I:%M%p") %></p>
+    </div>
+  </div>
+
+  <div class="text-center">
+    <%= link_to 'Cancel', rooms_path, class: "btn btn-danger" %>
+    <%= link_to "Book now", new_room_booking_path(@room), class: "btn btn-primary"%>
+  </div>
+</div>

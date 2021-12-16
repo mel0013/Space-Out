@@ -1,0 +1,16 @@
+.navbar-lewagon {
+  justify-content: space-between;
+  background:$tiffanyBlue;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 5;
+}
+
+.navbar-lewagon .navbar-collapse {
+  flex-grow: 0;
+}
+
+.navbar-lewagon .navbar-brand img {
+  width: 10rem;
+}

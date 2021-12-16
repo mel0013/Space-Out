@@ -1,0 +1,25 @@
+<div class="banner_list">
+  <div class="card-category card-large" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= asset_path('banner_rooms.jpg') %>)">
+      <div class="container">
+        <h2 class="font-heading">All our meeting spaces</h2>
+  </div>
+</div>
+
+<div class="container px-4 py-5">
+  <div class="row">
+    <% @rooms.each do |room| %>
+    <div class="card mx-3 my-3 zoom" style="width: 18rem;">
+      <%= link_to room_path(room) do %>
+      <img src="<%= room.image_url %>" class="card-img-top" alt="Room Picture">
+      <% end %>
+      <div class="card-body text-center d-flex flex-column justify-content-between">
+        <h5 class="card-title"><%= room.title %></h5>
+        <p class="text-muted"><%= room.description %></p>
+        <div>
+          <%= link_to "Book Now", new_room_booking_path(room), class: "btn btn-primary" %>
+        </div>
+      </div>
+    </div>
+    <% end %>
+  </div>
+</div>
